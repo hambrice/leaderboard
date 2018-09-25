@@ -140,3 +140,127 @@ class Leaderboard {
 
 
 }
+
+// describe('Leaderboard', function() {
+//
+//   const leaderboard = new Leaderboard;
+//
+//   it('starts with an empty player list', () => {
+//
+//     expect(leaderboard.players).toEqual({});
+//
+//   });
+//
+//   describe('addScore', function() {
+//
+//     it('adds a new player and their score', () => {
+//
+//       expect(leaderboard.addScore(1, 100)).toEqual(100);
+//        expect(leaderboard.addScore(2, 80)).toEqual(80);
+//        expect(leaderboard.addScore(3, 72)).toEqual(72);
+//
+//     });
+//
+//     it('returns a new average score if a player already exists', () => {
+//
+//       expect(leaderboard.addScore(2, 70)).toEqual(75);
+//       expect(leaderboard.addScore(2, 60)).toEqual(70);
+//
+//     });
+//
+//   })
+//
+//   describe('_sort', function() {
+//
+//     const player = {player_id: 1, scores: 2, totalScore: 200, before: null, next: null}
+//     const nextNormalPlayer = {player_id: 2, scores: 2, totalScore: 180, before: 3, next: 4}
+//     const currentLastPlayer = {player_id: 2, scores: 2, totalScore: 260, before: 3, next: null}
+//     const currentLeadPlayer = {player_id: 2, scores: 2, totalScore: 180, before: null, next: 3}
+//
+//     it('sets a player in a higher rank of the nextPlayer', () => {
+//
+//       expect(leaderboard._sort(player, nextNormalPlayer)).toEqual([{player_id: 1, scores: 2, totalScore: 200, before: 3, next: 2}, {player_id: 2, scores: 2, totalScore: 180, before: 1, next: 4} ])
+//
+//     })
+//
+//     it('handles if the next player is last ranked', () => {
+//
+//       expect(leaderboard._sort(player, currentLastPlayer)).toEqual([{player_id: 1, scores: 2, totalScore: 200, before: 3, next: 2}, {player_id: 2, scores: 2, totalScore: 260, before: 1, next: null} ])
+//
+//     })
+//
+//     it('handles if the player should be first', () => {
+//
+//       expect(leaderboard._sort(player, currentLeadPlayer)).toEqual([{player_id: 1, scores: 2, totalScore: 200, before: null, next: 2}, {player_id: 2, scores: 2, totalScore: 180, before: 1, next: 3} ])
+//
+//     })
+//
+//   })
+//
+//   describe('_sortLast', function() {
+//
+//     const player = {player_id: 1, scores: 2, totalScore: 200, before: null, next: null}
+//     const currentLastPlayer = {player_id: 2, scores: 2, totalScore: 260, before: 3, next: null}
+//
+//     it('handles if the current player should be last', () => {
+//
+//       expect(leaderboard._sortLast(player, currentLastPlayer)).toEqual([{player_id: 1, scores: 2, totalScore: 200, before: 2, next: null}, {player_id: 2, scores: 2, totalScore: 260, before: 3, next: 1} ])
+//
+//     })
+//
+//   })
+//
+//   describe('_handleOrder', function() {
+//
+//     const leaderboard2 = new Leaderboard
+//     leaderboard2.players = {
+//       1 : {player_id: 1, scores: 2, totalScore: 220, before: 2, next: 3},
+//       2 : {player_id: 2, scores: 2, totalScore: 240, before: null, next: 1},
+//       3 : {player_id: 3, scores: 2, totalScore: 180, before: 1, next: null}
+//     }
+//
+//     leaderboard2.leadPlayer = {player_id: 2, scores: 2, totalScore: 240, before: null, next: 1}
+//
+//     const player2 = {player_id: 4, scores: 2, totalScore: 200, before: null, next: null}
+//
+//     beforeEach(function() {
+//       leaderboard2._handleOrder(player2, leaderboard2.players[2])
+//     })
+//
+//     it('places a new player in the proper location', () => {
+//
+//       expect(leaderboard2.players).toEqual({
+//
+//       1 : {player_id: 1, scores: 2, totalScore: 220, before: 2, next: 4},
+//       2 : {player_id: 2, scores: 2, totalScore: 240, before: null, next: 1},
+//       3 : {player_id: 3, scores: 2, totalScore: 180, before: 4, next: null}
+//
+//     })
+//
+//       expect(player2).toEqual({player_id: 4, scores: 2, totalScore: 200, before: 1, next: 3})
+//
+//     })
+//
+//   })
+//
+//   describe('top', function() {
+//
+//     const leaderboard3 = new Leaderboard;
+//
+//     beforeEach(function() {
+//
+//       leaderboard3.addScore(1, 50);
+//       leaderboard3.addScore(3, 70);
+//       leaderboard3.addScore(2, 60);
+//
+//     })
+//
+//     it('returns the top ranked players', () => {
+//
+//       expect(leaderboard3.top(3)).toEqual([3, 2, 1])
+//
+//     })
+//
+//   })
+//
+// });
