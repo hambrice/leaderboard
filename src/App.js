@@ -11,14 +11,28 @@ class App extends Component {
     super();
 
     this.state = {
-      leaderboard: new Leaderboard
+      leaderboard: new Leaderboard,
+      currentPlayerID: null,
+      currentPlayerAverage: null,
     }
+  }
+
+  handleScoreSubmit = event => {
+
+    event.preventDefault();
+    const playerID = parseInt(event.target.getElementsByTagName("input")[0].value)
+    const score = parseInt(event.target.getElementsByTagName("input")[1].value)
+    const average = this.state.leaderboard.addScore(playerID, score)
+    this.setState({
+      currentPlayerID: playerID,
+      currentPlayerAverage: average
+    })
   }
 
   render() {
     return (
       <div className="App">
-        < ScoreInput />
+        < ScoreInput handleSubmit={this.handleScoreSubmit} playerID={this.state.currentPlayerID} average={this.state.currentPlayerAverage}/>
       </div>
     );
   }
