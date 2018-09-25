@@ -141,6 +141,8 @@ class Leaderboard {
 
 }
 
+export default Leaderboard;
+
 // describe('Leaderboard', function() {
 //
 //   const leaderboard = new Leaderboard;

@@ -2,17 +2,23 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import Leaderboard from './helpers/Leaderboard';
+import ScoreInput from './components/ScoreInput';
+
 class App extends Component {
+  constructor() {
+
+    super();
+
+    this.state = {
+      leaderboard: new Leaderboard
+    }
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        < ScoreInput />
       </div>
     );
   }
