@@ -17,7 +17,8 @@ class App extends Component {
       leaderboard: new Leaderboard,
       currentPlayerID: null,
       currentPlayerAverage: null,
-      currentRankings: null
+      currentRankings: null,
+      firstScoreEntered: false
     }
   }
 
@@ -29,7 +30,8 @@ class App extends Component {
     const average = this.state.leaderboard.addScore(playerID, score)
     this.setState({
       currentPlayerID: playerID,
-      currentPlayerAverage: average
+      currentPlayerAverage: average,
+      firstScoreEntered: true
     })
 
   }
@@ -56,8 +58,13 @@ class App extends Component {
       <div className="App">
         <NavBar />
         < ScoreInput handleSubmit={this.handleScoreSubmit} playerID={this.state.currentPlayerID} average={this.state.currentPlayerAverage}/>
+        {this.state.firstScoreEntered ?
+          <div>
         < RankInput handleSubmit={this.handleRankSubmit} rankings={this.state.currentRankings} />
         < ResetPlayer handleSubmit={this.handleResetSubmit} />
+        </div>
+        : null
+      }
       </div>
     );
   }

@@ -50,7 +50,17 @@ class Leaderboard {
     for(let i=0; i < int; i++) {
 
       currentRanking.push(currentPlayer.player_id)
-      currentPlayer = this.players[currentPlayer.next]
+
+      //make sure there is a next player/int isn't larger than the amount of total players
+      if (currentPlayer.next) {
+
+         currentPlayer = this.players[currentPlayer.next]
+
+      } else {
+
+        return currentRanking;
+
+      }
 
     }
 
@@ -68,7 +78,7 @@ class Leaderboard {
       player.next ? this.leadPlayer = this.players[player.next] : null
 
     }
-    console.log(player.next, this.leadPlayer)
+    
     player.scores = player.totalScore = 0;
     //player.next ? this._handleOrder(player, this.leadPlayer) : null
 
