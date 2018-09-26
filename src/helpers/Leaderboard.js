@@ -62,14 +62,15 @@ class Leaderboard {
 
     const player = this.players[player_id];
 
+    //if the current player was the lead player, set the next player as the lead if there is one
     if (this.leadPlayer.player_id === player.player_id) {
 
-      this.leadPlayer = this.players[player.next]
+      player.next ? this.leadPlayer = this.players[player.next] : null
 
     }
-
+    console.log(player.next, this.leadPlayer)
     player.scores = player.totalScore = 0;
-    this._handleOrder(player, this.leadPlayer);
+    //player.next ? this._handleOrder(player, this.leadPlayer) : null
 
   }
 
@@ -123,6 +124,10 @@ class Leaderboard {
 
   _sort(currentPlayer, otherPlayer) {
 
+    //prevent a player from being set as its own before or after
+    if (currentPlayer.player_id === otherPlayer.player_id) {
+      return;
+    }
     //if otherPlayer is the current last, make currentPlayer the new last
     if(!otherPlayer.before) {
 

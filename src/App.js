@@ -5,6 +5,7 @@ import './App.css';
 import Leaderboard from './helpers/Leaderboard';
 import ScoreInput from './components/ScoreInput';
 import RankInput from './components/PlayerRank';
+import ResetPlayer from './components/ResetPlayer';
 
 class App extends Component {
   constructor() {
@@ -42,11 +43,19 @@ class App extends Component {
     })
   }
 
+  handleResetSubmit = event => {
+
+    event.preventDefault();
+    const playerReset = parseInt(event.target.getElementsByTagName("input")[0].value)
+    this.state.leaderboard.reset(playerReset)
+  }
+
   render() {
     return (
       <div className="App">
         < ScoreInput handleSubmit={this.handleScoreSubmit} playerID={this.state.currentPlayerID} average={this.state.currentPlayerAverage}/>
         < RankInput handleSubmit={this.handleRankSubmit} rankings={this.state.currentRankings} />
+        < ResetPlayer handleSubmit={this.handleResetSubmit} />
       </div>
     );
   }
