@@ -5,7 +5,7 @@ const ScoreInput = props =>
     <p className="lead">To add scores to the board, input the unique player ID for a new or existing player and their latest score. </p>
     <form onSubmit={props.handleSubmit}>
       <input className="form-control-sm" type="number" name="player-id" placeholder="Player ID"/>
-      <input className="form-control-sm" type="number" name="score" placeholder="Latest Score"/><br/>
+      <input className="form-control-sm" type="number" name="score" placeholder="Latest Score"/><br/><br/>
       <input className = "btn btn-warning" type="submit" value="Submit Score" />
     </form>
 
