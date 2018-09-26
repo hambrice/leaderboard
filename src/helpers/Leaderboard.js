@@ -47,7 +47,7 @@ class Leaderboard {
     let currentRanking = [];
 
     //add the current player's id to the empty array in order and then move to the next player until it's reached the size of the input
-    for(let i=0; i < int; i++) {
+    for(let i=0; i < Math.abs(int); i++) {
 
       currentRanking.push(currentPlayer.player_id)
 
@@ -78,7 +78,7 @@ class Leaderboard {
       player.next ? this.leadPlayer = this.players[player.next] : null
 
     }
-    
+
     player.scores = player.totalScore = 0;
     //player.next ? this._handleOrder(player, this.leadPlayer) : null
 
