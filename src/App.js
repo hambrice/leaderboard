@@ -4,6 +4,7 @@ import './App.css';
 
 import Leaderboard from './helpers/Leaderboard';
 import ScoreInput from './components/ScoreInput';
+import RankInput from './components/PlayerRank';
 
 class App extends Component {
   constructor() {
@@ -14,6 +15,7 @@ class App extends Component {
       leaderboard: new Leaderboard,
       currentPlayerID: null,
       currentPlayerAverage: null,
+      currentRankings: null
     }
   }
 
@@ -27,12 +29,24 @@ class App extends Component {
       currentPlayerID: playerID,
       currentPlayerAverage: average
     })
+
+  }
+
+  handleRankSubmit = event => {
+
+    event.preventDefault();
+    const rankAmount = parseInt(event.target.getElementsByTagName("input")[0].value)
+    const rankings = this.state.leaderboard.top(rankAmount)
+    this.setState({
+      currentRankings: rankings
+    })
   }
 
   render() {
     return (
       <div className="App">
         < ScoreInput handleSubmit={this.handleScoreSubmit} playerID={this.state.currentPlayerID} average={this.state.currentPlayerAverage}/>
+        < RankInput handleSubmit={this.handleRankSubmit} rankings={this.state.currentRankings} />
       </div>
     );
   }

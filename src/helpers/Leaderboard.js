@@ -60,7 +60,6 @@ class Leaderboard {
 
   _handleOrder(currentPlayer, nextPlayer) {
 
-    console.log(this.players)
     //if this is the first player, make it the leadPlayer and terminate
     if (!this.leadPlayer) {
 
