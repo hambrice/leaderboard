@@ -2,11 +2,11 @@ import React from 'react';
 
 
 const RankInput = props =>
-  <div className="rank-input panel">
-    <p>To see the current rankings of this board, select how far down in the rankings you would like to see. </p>
+  <div className="card border-warning mb-3" style={{maxWidth: 35 + "rem"}}>
+    <p className="lead">To see the current rankings of this board, select how far down in the rankings you would like to see. </p>
     <form onSubmit={props.handleSubmit}>
-      <input type="number" placeholder="Length of Rankings"/><br/>
-      <input type="submit" />
+      <input className="form-control-sm" type="number" placeholder="Length of Rankings"/><br/>
+      <input className = "btn btn-warning" type="submit" />
     </form>
     {props.rankings ? <PlayerRank rankings={props.rankings} /> : null}
   </div>
