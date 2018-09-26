@@ -58,6 +58,21 @@ class Leaderboard {
 
   }
 
+  reset(player_id) {
+
+    const player = this.players[player_id];
+
+    if (this.leadPlayer.player_id === player.player_id) {
+
+      this.leadPlayer = this.players[player.next]
+
+    }
+
+    player.scores = player.totalScore = 0;
+    this._handleOrder(player, this.leadPlayer);
+
+  }
+
   _handleOrder(currentPlayer, nextPlayer) {
 
     //if this is the first player, make it the leadPlayer and terminate
@@ -259,6 +274,26 @@ export default Leaderboard;
 //     it('returns the top ranked players', () => {
 //
 //       expect(leaderboard3.top(3)).toEqual([3, 2, 1])
+//
+//     })
+//
+//   })
+//
+//     describe('reset', function() {
+//
+//     const leaderboard4 = new Leaderboard;
+//
+//     beforeEach(function() {
+//
+//       leaderboard4.addScore(1, 50);
+//       leaderboard4.addScore(3, 70);
+//       leaderboard4.reset(1)
+//
+//     })
+//
+//     it('sets the selected players score to 0', () => {
+//
+//       expect(leaderboard4.players[1].totalScore).toEqual(0)
 //
 //     })
 //
