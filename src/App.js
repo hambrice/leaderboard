@@ -19,7 +19,7 @@ class App extends Component {
       currentPlayerAverage: null,
       currentRankings: null,
       firstScoreEntered: false,
-      resetValid: "is-valid"
+      resetValid: null
     }
   }
 
@@ -52,6 +52,9 @@ class App extends Component {
     event.preventDefault();
     const playerReset = parseInt(event.target.getElementsByTagName("input")[0].value)
     this.state.leaderboard.reset(playerReset)
+    this.setState({
+      resetValid: "is-valid"
+    })
   }
 
   handleResetChange = event => {
@@ -65,7 +68,7 @@ class App extends Component {
       document.getElementById("resetSubmit").disabled = true;
     } else {
       this.setState({
-        resetValid: "is-valid"
+        resetValid: null
       })
       document.getElementById("resetSubmit").disabled = false;
     }

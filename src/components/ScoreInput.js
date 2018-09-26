@@ -7,7 +7,7 @@ const ScoreInput = props =>
       <input className="form-control-sm" type="number" name="player-id" placeholder="Player ID"/>
       <input className="form-control-sm" type="number" name="score" placeholder="Latest Score"/><br/><br/>
       <input className = "btn btn-warning" type="submit" value="Submit Score" />
-    </form>
+    </form><br/>
 
     {props.playerID ? < DisplayPlayerAverage playerID={props.playerID} average={props.average} /> : null}
 
@@ -16,7 +16,7 @@ const ScoreInput = props =>
   const DisplayPlayerAverage = props =>
 
   <div className="player-average">
-  <p>Currently, player number {props.playerID} has an average score of {props.average} </p>
+  <p>Currently, player #{props.playerID} has an average score of {props.average} </p>
   </div>
 
 export default ScoreInput;

@@ -2189,13 +2189,13 @@ textarea.form-control {
   border-radius: 0.25rem;
 }
 
-.was-validated .form-control:valid, .form-control.is-valid, .was-validated
+.was-validated .form-control:valid, .form-control-sm.is-valid, .was-validated
 .custom-select:valid,
 .custom-select.is-valid {
   border-color: #62c462;
 }
 
-.was-validated .form-control:valid:focus, .form-control.is-valid:focus, .was-validated
+.was-validated .form-control:valid:focus, .form-control-sm.is-valid:focus, .was-validated
 .custom-select:valid:focus,
 .custom-select.is-valid:focus {
   border-color: #62c462;
@@ -2204,8 +2204,8 @@ textarea.form-control {
 }
 
 .was-validated .form-control:valid ~ .valid-feedback,
-.was-validated .form-control:valid ~ .valid-tooltip, .form-control.is-valid ~ .valid-feedback,
-.form-control.is-valid ~ .valid-tooltip, .was-validated
+.was-validated .form-control:valid ~ .valid-tooltip, .form-control-sm.is-valid ~ .valid-feedback,
+.form-control-sm.is-valid ~ .valid-tooltip, .was-validated
 .custom-select:valid ~ .valid-feedback,
 .was-validated
 .custom-select:valid ~ .valid-tooltip,

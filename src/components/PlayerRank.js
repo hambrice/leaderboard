@@ -22,7 +22,7 @@ const PlayerRank = props =>
   <tbody>
 
     {props.rankings.map((player, key) =>
-    <tr key={key} className="table-light">
+    <tr key={key} className="table-info">
     <td> {key + 1} </td>
     <td> {player}</td>
     </tr>
