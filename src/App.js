@@ -6,6 +6,7 @@ import Leaderboard from './helpers/Leaderboard';
 import ScoreInput from './components/ScoreInput';
 import RankInput from './components/PlayerRank';
 import ResetPlayer from './components/ResetPlayer';
+import NavBar from './components/NavBar';
 
 class App extends Component {
   constructor() {
@@ -53,6 +54,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <NavBar />
         < ScoreInput handleSubmit={this.handleScoreSubmit} playerID={this.state.currentPlayerID} average={this.state.currentPlayerAverage}/>
         < RankInput handleSubmit={this.handleRankSubmit} rankings={this.state.currentRankings} />
         < ResetPlayer handleSubmit={this.handleResetSubmit} />
